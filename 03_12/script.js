@@ -17,6 +17,16 @@ const myLibrary = new Library(
 );
 
 console.log("this is new one", myLibrary);
-
 console.log(myLibrary.copiesSold.high);
 console.log(myLibrary.type);
+
+const yourLibrary = new Library(
+  " Think&GrowRich",
+  "Non-fiction",
+  "NapolianHill",
+  1932,
+  "165_million",
+  "500_thousands"
+);
+
+console.log("this is new one", yourLibrary);
