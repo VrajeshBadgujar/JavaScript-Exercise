@@ -1,7 +1,11 @@
 /**
- * Traverse the DOM tree using querySelector() and querySelectorAll()
- * @link https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector
- * @link https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
+ * Challenge: Add a new element
+ * - In JavaScript, create a new element to hold a navigation menu
+ * - Add an unordered list and a series of no less than five links to the list
+ * - Use single words like “home”, “about”, etc for the list items and set the src attribute to # for simplicity
+ * - Add the new navigation element to the DOM directly after the header
+ * - Write basic CSS and add classes as necessary to create a horizontal layout for the menu.
+ * - A tip: Use either display flex or display grid to create the horizontal menu.
  */
 
 import Backpack from "./Backpack.js";
@@ -18,14 +22,12 @@ const everydayPack = new Backpack(
   "../assets/images/everyday.svg"
 );
 
-const main = document.querySelector(".maincontent");
-
 const content = `
-  <article class="backpack" id="everyday">
+  
     <figure class="backpack__image">
       <img src=${everydayPack.image} alt="" />
     </figure>
-    <h1 class="backpack__name">${everydayPack.name}</h1>
+    <h1 class="backpack__name">Everyday Backpack</h1>
     <ul class="backpack__features">
       <li class="packprop backpack__volume">Volume:<span> ${
         everydayPack.volume
@@ -47,13 +49,33 @@ const content = `
         everydayPack.lidOpen
       }</span></li>
     </ul>
-  </article>
+  
 `;
+
+const main = document.querySelector(".maincontent");
 
 const newArticle = document.createElement("article");
 newArticle.classList.add("backpack");
 newArticle.setAttribute("id", "everyday");
-
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+const navcontent = `
+                <ul>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Services</li>
+                <li>Testmonials</li>
+                <li>Contact us</li>
+                </ul>
+                </nav>
+`;
+
+const menu = document.querySelector(".siteheader");
+
+const navigation = document.createElement("navbar");
+navigation.classList.add("topnav");
+navigation.setAttribute("id", "newtopnav");
+navigation.innerHTML = navcontent;
+menu.append(navigation);
