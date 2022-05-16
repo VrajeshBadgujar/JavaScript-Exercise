@@ -73,7 +73,6 @@ const navcontent = `
 `;
 
 const menu = document.querySelector(".siteheader");
-
 const navigation = document.createElement("navbar");
 navigation.classList.add("topnav");
 navigation.setAttribute("id", "newtopnav");
