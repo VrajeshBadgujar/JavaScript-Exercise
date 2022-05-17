@@ -3,40 +3,23 @@
  * @link https://developer.mozilla.org/en-US/docs/Glossary/Function
  */
 
-// const tipCalculator = () => {
-//   let sum = 29.95;
-//   let percentage = 18;
-//   let tip = sum * (percentage / 100);
-//   let total = sum + tip;
-//   console.log(`
-//   Sum before tip: ${sum}
-//   Tip percentage: ${percentage}%
-//   Tip:            ${tip.toFixed(2)}
-//   Total:          ${total.toFixed(2)}
-// `);
-// };
-
-// tipCalculator();
-
-const tipCalculator = (sum, percentage, currency, prefix) => {
-  let tip = sum * (percentage / 100);
-  let total = sum + tip;
-  if (prefix) {
-    console.log(`
-
-      sum before tip: ${currency}${sum}
-      tip percentage: ${percentage}%
-      tip:             ${currency}${tip.toFixed(2)}
-      total:          ${currency}${total.toFixed(2)}
-      `);
-  } else {
-    console.log(`
-  sum before tip:${sum} ${currency}
-  tip percentage: ${percentage}%
-  tip:             ${tip.toFixed(2)}${currency}
-  total:          ${total.toFixed(2)}${currency}  
-  `);
-  }
+const formatter = (locale, currency, value) => {
+  let formatvalue = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(value);
+  return formatvalue;
 };
 
-tipCalculator(29.95, 28, "$", false);
+const tipCalculator = (sum, percentage, locale, currency) => {
+  let tip = sum * (percentage / 100);
+  let total = sum + tip;
+  console.log(`
+      sum before tip: ${formatter(locale, currency, sum)}
+      tip percentage: ${percentage}%
+      tip:             ${formatter(locale, currency, tip)}
+      total:          ${formatter(locale, currency, total)}
+      `);
+};
+
+tipCalculator(29.95, 28, "en-US", "USD");
