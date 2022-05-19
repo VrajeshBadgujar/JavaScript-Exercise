@@ -12,3 +12,18 @@ const employees = [{
     salary: 250000,
 }];
 
+const makesMorethanMillion = employees => employees.salary > 100000;
+
+const result = employees.some(makesMorethanMillion);
+
+const formValues = [
+    "Shaun",
+    "Wassell",
+    "Maine",
+    "",
+]
+
+const isNotEmpty = string => !!string;
+
+const filled = formValues.every(isNotEmpty)
+console.log(filled);

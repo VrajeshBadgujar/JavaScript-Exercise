@@ -10,7 +10,7 @@ const myFunction = true
 const DEVELOPMENT = true;
 
 const fetchDataReal = () => {
-    // time-intensive operations here!
+    // time-intensive operations here! 
 }
 
 const fetchDataFake = () => ({
