@@ -1,5 +1,10 @@
 const map = (arr, func) => {
-    
+    let newarray = [];
+    for (let i = 0; i < arr.length; i++) {
+        const result = func(arr[i]);
+        newarray.push(result);       
+    }
+    return newarray;
 }
 
 // testing if it works:

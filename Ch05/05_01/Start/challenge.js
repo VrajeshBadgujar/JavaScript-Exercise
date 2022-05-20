@@ -7,8 +7,12 @@ const electionVotes = [
 ];
 
 const tallyVotes = votes => {
-    // Your code here
-};
+    return votes.reduce((acc, name) =>( {
+       ...acc,
+       [name]: acc[name] ? acc[name] + 1:1,
+
+    }), {})
+} ;
 
 console.log(tallyVotes(electionVotes));
 

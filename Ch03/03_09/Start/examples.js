@@ -35,16 +35,22 @@ const employees = [{
     salary: 90000,
 }];
 
-const developers = employees.filter(employee =>
-    employee.jobTitle === 'developer');
-const developerSalaries = developers.map(developer => developer.salary);
-const totalDeveloperSalaries = developerSalaries.reduce((acc, x) => acc + x, 0);
-const averageDeveloperSalary = totalDeveloperSalaries / developerSalaries.length;
-console.log(averageDeveloperSalary);
+const developerjob = employees.filter(developer => developer.jobTitle==='developer' );
+// console.log(developerjob);
 
-const nonDevelopers = employees.filter(employee =>
-    employee.jobTitle !== 'developer');
-const nonDeveloperSalaries = nonDevelopers.map(nonDev => nonDev.salary);
-const totalNonDeveloperSalaries = nonDeveloperSalaries.reduce((acc, x) => acc + x, 0);
-const averageNonDeveloperSalary = totalNonDeveloperSalaries / nonDeveloperSalaries.length;
-console.log(averageNonDeveloperSalary);
+const devSalary = developerjob.map(developer=>developer.salary)
+
+const totalSalary = devSalary.reduce((acc, x)=>
+    acc+x, 0
+)
+
+const avgSalary = totalSalary/ developerjob.length
+
+// console.log(avgSalary);
+
+const nondev = employees.filter(nondev=>nondev.jobTitle!=='developer')
+// console.log(nondev);
+
+const nondevSalary = nondev.map(nondev=>nondev.salary)
+console.log(nondevSalary);
+
